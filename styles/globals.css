@@ -1,7 +1,8 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
+  background-color: #1e272e !important;
+  padding: 0 !important;
+  margin: 0 !important;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -15,12 +16,18 @@ a {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+/* .slick-prev:before{
+  color: #485460 !important;
+  outline: "1px solid red" !important;
 }
+.slick-next:before{
+  color: #485460 !important;
+  outline: "1px solid red" !important;
+} */
+
+/* .slick-list{
+  background-color: red !important;
+  width: 100% !important;
+  position: absolute !important;
+
+} */
