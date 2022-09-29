@@ -17,13 +17,25 @@ const colors = [
 ];
 
 const NavCryptoCard = ({ img, title }: Props) => {
-
   return (
-    <Flex h="100%" whiteSpace="nowrap" borderRight="1px solid #485460" overflow="hidden"  px="10px" fontSize="xs" alignItems="center">
-      <Box position="relative" w="1rem" h="1rem" mr="3px">
+    <Flex
+      _hover={{
+        borderBottom: "3px solid 'linear(to-l, #7928CA, #FF0080)'",
+      }}
+      h="100%"
+      whiteSpace="nowrap"
+      borderRight="1px solid #485460"
+      // overflow="hidden"
+      // px="10px"
+      fontSize="xs"
+      alignItems="center"
+    >
+      <Box
+        mr="3px"
+      >
         <Image src={img} layout="fill" />
       </Box>
-      <Text color={colors[Math.round(Math.random() * 7)]}>{title}</Text>
+      <Text noOfLines={1} color={colors[Math.round(Math.random() * 7)]}>{title}</Text>
     </Flex>
   );
 };

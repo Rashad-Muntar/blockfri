@@ -14,20 +14,67 @@ a {
 
 * {
   box-sizing: border-box;
+  min-height: 0px !important;
+  min-width: 0px !important;
 }
 
-/* .slick-prev:before{
-  color: #485460 !important;
-  outline: "1px solid red" !important;
+.logo {
+  color: wheat;
+  background: -webkit-linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-.slick-next:before{
-  color: #485460 !important;
-  outline: "1px solid red" !important;
+
+
+.swiper-button-prev,
+.swiper-button-next {
+  border-radius: 50%;
+  color: gray !important;
+  outline: 0;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* .swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 16px !important;
 } */
 
-/* .slick-list{
-  background-color: red !important;
-  width: 100% !important;
-  position: absolute !important;
+/* .swiper-button-prev:after {
+  position: relative;
+  right: -80px;
+  background-color: red;
+}
 
+.swiper-button-next:after {
+  position: relative;
+  left: 1px;
 } */
+
+
+/* .swiper_wrap {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: block;
+  text-align: left;
+} */
+/* .swiper-button-next {
+  margin-top: 0px;
+  position: absolute;
+  top: 50%;
+  right: -40px;
+  width: 45px;
+  height: 45px;
+  transform: translateY(-50%);
+}
+.swiper-button-prev {
+  position: absolute;
+  top: 50%;
+  left: -40px;
+  width: 45px;
+  height: 45px;
+  transform: translateY(-50%);
+  margin-top: 0px;
+} */
+
+

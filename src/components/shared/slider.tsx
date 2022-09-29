@@ -1,49 +1,49 @@
 import React, { ReactNode } from "react";
-import Slider from "react-slick";
- import {BiRightArrowAlt, BiLeftArrowAlt} from "react-icons/bi"
+import { Flex, Box } from "@chakra-ui/react";
+import { Swiper } from "swiper/react";
+import { Navigation } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
 
-
+import { BiRightArrowAlt, BiLeftArrowAlt } from "react-icons/bi";
+import "swiper/css";
 interface Props {
-    slideNum: number,
-    children: ReactNode
+  slideNum: number;
+  children?: ReactNode;
 }
 
-function SampleNextArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-        <BiRightArrowAlt 
-        className={className}
-        style={{ ...style, display: "block", color: "#485460" }}
-        onClick={onClick}
-        />
-    );
-  }
-  function SamplePrevArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-        <BiLeftArrowAlt 
-        className={className}
-        style={{ ...style, display: "block", color: "#485460" }}
-        onClick={onClick}
-        />
-    );
-  }
-const Slide  = ({children, slideNum}: Props) => {
-    const settings = {
-        infinite: true,
-        speed: 500,
-        slidesToShow: slideNum,
-        slidesToScroll: 1,
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />
-      };
-    return (
-      <div style={{position: "fixed", top: "0", width:"40%", left:"15%"}}>
-        <Slider {...settings}>
-          {children}
-        </Slider>
-      </div>
-    );
-  }
+const Slide = ({ children, slideNum }: Props) => {
+  return (
+    <Flex h="100%">
+      <Swiper
+        slidesPerView={slideNum}
+        navigation={{
+          nextEl: ".review-swiper-button-next",
+          prevEl: ".review-swiper-button-prev",
+        }}
+        modules={[Navigation]}
+        loop={true}
+        width={600}
+        className="mySwiper"
+      >
+        {children}
+      </Swiper>
+      <Flex borderX="1px" flexDirection="column" alignItems="center" borderColor="textGray" w="10%">
+        <Box className="review-swiper-button-prev" borderBottom="1px" borderColor="textGray">
+          <BiLeftArrowAlt
+            className="review-swiper-button-prev"
+            color="#00d8d6"
+          />
+        </Box>
+        <Box className="review-swiper-button-next">
+          <BiRightArrowAlt
+            className="review-swiper-button-next"
+            color="#00d8d6"
+          />
+        </Box>
+      </Flex>
+    </Flex>
+  );
+};
 
-  export default Slide
+export default Slide;
