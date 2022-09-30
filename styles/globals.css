@@ -26,55 +26,13 @@ a {
 }
 
 
-.swiper-button-prev,
-.swiper-button-next {
-  border-radius: 50%;
-  color: gray !important;
-  outline: 0;
-  transition: background-color 0.2s ease, color 0.2s ease;
+.css-7roig{
+  background-color: transparent !important;
+  outline: 1px solid #00d8d6;
 }
 
-/* .swiper-button-prev::after,
-.swiper-button-next::after {
-  font-size: 16px !important;
-} */
-
-/* .swiper-button-prev:after {
-  position: relative;
-  right: -80px;
-  background-color: red;
+.css-yjew60{
+  background-color: #485460 !important;
 }
-
-.swiper-button-next:after {
-  position: relative;
-  left: 1px;
-} */
-
-
-/* .swiper_wrap {
-  height: 100%;
-  width: 100%;
-  position: relative;
-  display: block;
-  text-align: left;
-} */
-/* .swiper-button-next {
-  margin-top: 0px;
-  position: absolute;
-  top: 50%;
-  right: -40px;
-  width: 45px;
-  height: 45px;
-  transform: translateY(-50%);
-}
-.swiper-button-prev {
-  position: absolute;
-  top: 50%;
-  left: -40px;
-  width: 45px;
-  height: 45px;
-  transform: translateY(-50%);
-  margin-top: 0px;
-} */
 
 

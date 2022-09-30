@@ -25,7 +25,7 @@ const NavCryptoCard = ({ img, title }: Props) => {
       h="100%"
       whiteSpace="nowrap"
       borderRight="1px solid #485460"
-      // overflow="hidden"
+      overflow="hidden"
       // px="10px"
       fontSize="xs"
       alignItems="center"
@@ -33,7 +33,7 @@ const NavCryptoCard = ({ img, title }: Props) => {
       <Box
         mr="3px"
       >
-        <Image src={img} layout="fill" />
+        <img src={img} width="12px" />
       </Box>
       <Text noOfLines={1} color={colors[Math.round(Math.random() * 7)]}>{title}</Text>
     </Flex>
