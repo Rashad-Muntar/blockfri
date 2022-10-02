@@ -1,7 +1,8 @@
 import "../styles/globals.css";
-import 'swiper/css';
+import "swiper/css";
 import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
+import { storeWrapper } from "../src/State/store";
 import theme from "../them";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -12,4 +13,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default storeWrapper.withRedux(MyApp);
