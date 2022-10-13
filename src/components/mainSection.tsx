@@ -2,6 +2,7 @@ import Wrapper from "./shared/wrapper";
 import { Flex, Box, Show } from "@chakra-ui/react";
 import SideBar from "./sideBar/sidebar";
 import PerformanceSection from "./main/performanceSection";
+import DetailChart from "./main/detailChart";
 const MainSection = () => {
   return (
     <Wrapper>
@@ -12,7 +13,7 @@ const MainSection = () => {
         </Box>
         </Show>
         <PerformanceSection />
-      
+        <DetailChart />
       </Flex>
     </Wrapper>
   );

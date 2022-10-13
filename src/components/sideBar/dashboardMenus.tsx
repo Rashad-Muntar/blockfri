@@ -30,7 +30,6 @@ const DashMenu = () => {
       return "";
     }
   };
-  console.log(active);
   return (
     <Box my="10px" >
       {menusItems.map((menu, index) => (

@@ -23,7 +23,7 @@ const useDataFetch = <T,>(
   const [data, setData] = useState<T>();
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-
+  // console.log(url)
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -47,7 +47,7 @@ const useDataFetch = <T,>(
       }
     };
     fetchData();
-  }, []);
+  }, [url]);
   return { data, error, loading };
 };
 
