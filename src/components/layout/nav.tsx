@@ -13,7 +13,7 @@ const Nav = () => {
         px={["20px", "20px", "0"]}
       >
         <Flex w="60%">
-          <Flex alignItems="center" color="white" w="25%">
+          <Flex justifyContent="center" borderRight="1px" borderColor="textGray" alignItems="center" color="white" w="37.5%">
             <Flex h="100%" alignItems="center">
               <GiCalendarHalfYear />
             </Flex>
@@ -24,9 +24,8 @@ const Nav = () => {
             </Flex>
           </Flex>
           <Show above="md">
-          <NavSlider />
+            <NavSlider />
           </Show>
-          
         </Flex>
         <AuthSection />
       </Flex>

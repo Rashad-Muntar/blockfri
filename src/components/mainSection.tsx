@@ -1,13 +1,18 @@
 import Wrapper from "./shared/wrapper";
-import { Grid, GridItem, Flex, Box } from "@chakra-ui/react";
+import { Flex, Box, Show } from "@chakra-ui/react";
 import SideBar from "./sideBar/sidebar";
+import PerformanceSection from "./main/performanceSection";
 const MainSection = () => {
   return (
     <Wrapper>
       <Flex w="100%">
-        <Box w="20%">
+        <Show above="md">
+        <Box w="20%" minW="200px">
           <SideBar />
         </Box>
+        </Show>
+        <PerformanceSection />
+      
       </Flex>
     </Wrapper>
   );
