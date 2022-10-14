@@ -2,10 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 import { HYDRATE } from "next-redux-wrapper";
 
 interface CryptState {
-  data: [];
+  data: [number];
 }
 
-const initialState: CryptState = { data: [] };
+const initialState: CryptState = { data: [2] };
 
 const historySlice = createSlice({
   name: "history",

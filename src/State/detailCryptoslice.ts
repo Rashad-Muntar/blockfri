@@ -1,29 +1,32 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { HYDRATE } from "next-redux-wrapper";
 
-interface DetailState {
-  name: String;
+interface Props {
+  name: string;
 }
 
-const initialState: DetailState = { name: "bitcoin" };
+const initialState: Props = { name: "bitcoin" };
 
-const CryptoDetailSlice = createSlice({
-  name: "detail",
+const detailSlice = createSlice({
+  name: "cryptoDetails",
   initialState,
   reducers: {
-    setDetailName(state, action) {
-      return action.payload;
+    setDetailSlice(state, action) {
+      return {...state, name: action.payload };
     },
   },
-  extraReducers: {
+  extraReducers:{
     [HYDRATE]: (state, action) => {
-      if (!action.payload.detail.name) {
-        return state;
-      }
-      return { ...state, ...action.payload.detail };
-    },
-  },
+        if (!action.payload.cryptoDetails) {
+            return state;
+          }
+          return{
+            ...state.name,
+            ...action.payload.cryptoDetails
+          }
+    }
+  }
 });
 
-export const {setDetailName} = CryptoDetailSlice.actions
-export const detailReducer = CryptoDetailSlice.reducer
+export const {setDetailSlice} = detailSlice.actions
+export const detailReducer = detailSlice.reducer

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Box } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
-import { subDays, fromUnixTime } from "date-fns";
+import { format, fromUnixTime, getUnixTime, parseISO, subDays } from "date-fns";
 import useDataFetch from "../shared/useFetch";
+import dynamic from "next/dynamic";
 import axios from "axios";
 
 import {
@@ -14,62 +15,82 @@ import {
   Line,
   Tooltip,
   Legend,
+  AreaChart,
+  Area,
 } from "recharts";
 
 type Props = {
   icon: string;
   name: string;
+  data: { prices: [] };
 };
-function DetailChart() {
+
+const DetailChart = ({ data }: Props) => {
   const dt = useSelector((state: any) => state.detail);
   const [init, setInit] = useState("bitcoin");
-  //   const { data } = useDataFetch<{ coins: [Props] }>(
-  //     `https://api.coingecko.com/api/v3/coins/${dt}/market_chart?vs_currency=usd&days=7`
-  //   );
-  useEffect(() => {
-        setInit(dt);
-  }, [dt]);
-  console.log(init)
+  const [domLoadin, setDomLoading] = useState(false);
+  const [formatData, setFormatData] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(
-        `https://api.coingecko.com/api/v3/coins/${init}/market_chart?vs_currency=usd&days=7`
-      )
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    setInit(dt);
   }, [dt]);
+  const foarmatedData = [];
 
-  console.log(typeof dt);
-  //   console.log(data);
-  // console.log(fromUnixTime(54751))
-  const dtData = "";
-  // console.log(`https://api.coingecko.com/api/v3/coins/${dt}/market_chart?vs_currency=usd&days=7`)
-  // console.log(data[0].sparkline_in_7d.price.slice(0, 10))
+  // useEffect(() => {
+
+  //   data?.prices.map((dt, inex) => {
+  //     let dateSubStr = fromUnixTime(dt[0]);
+  //     dateSubStr = format(dateSubStr, "MMM, dd");
+  //     foarmatedData.push({ date: dateSubStr, price: dt[1] });
+  //   });
+  // }, [domLoadin]);
+
+  data?.prices.map((dt, inex) => {
+    let dateSubStr = fromUnixTime(dt[0]);
+    dateSubStr = format(dateSubStr, "MMM-d");
+    foarmatedData.push({
+      date: dateSubStr,
+      price: `${dt[1]?.toFixed(2)}`,
+    });
+  });
+
+  useEffect(() => {
+    setDomLoading(true);
+  }, []);
+
   return (
     <Box>
-      <ResponsiveContainer>
+      {domLoadin && (
         <LineChart
           width={730}
-          height={250}
-          // data={}
-          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+          height={350}
+          data={foarmatedData}
+          margin={{ top: 5, right: 10, left: 40, bottom: 5 }}
         >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
+          <CartesianGrid vertical={false} strokeDasharray="3 3" opacity={0.3} />
+          <XAxis
+            dataKey="date"
+            axisLine={false}
+            tickLine={false}
+            tickCount={2}
+          />
+          <YAxis
+            hide={true}
+            dataKey="price"
+            axisLine={false}
+            tickLine={false}
+            tickFormatter={(num) => `$${num}`}
+            tickCount={5}
+            domain={["dataMin - 100", "dataMax + 500"]}
+          />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="pv" stroke="#8884d8" />
-          <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+          <Line type="monotone" dataKey="date" stroke="#8884d8" />
+          <Line type="monotone" dataKey="price" stroke="#82ca9d" />
         </LineChart>
-      </ResponsiveContainer>
+      )}
     </Box>
   );
-}
+};
 
 export default DetailChart;

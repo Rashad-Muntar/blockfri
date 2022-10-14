@@ -7,8 +7,7 @@ function PerformanceSection() {
   return (
     <Box
       color="textGray"
-      width={{ sm: "100%", md: "100%", lg: "55%" }}
-      m="20px"
+    
       box-sizing="border-box"
     >
       <Text width="100%" borderBottom="1px" borderColor="textGray">

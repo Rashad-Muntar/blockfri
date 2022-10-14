@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Box, Flex, Select, Text } from "@chakra-ui/react";
-import { setDetailName } from "../../State/detailCryptoslice";
+import { setDetailSlice } from "../../State/detailCryptoslice";
 
 const Balance = () => {
   const [curentCrypto, setCurrentcrypto] = useState("")
@@ -11,7 +11,7 @@ const Balance = () => {
     setCurrentcrypto(e.target.value)
   }
   useEffect(() => {
-    dispatch(setDetailName(curentCrypto))
+    dispatch(setDetailSlice(curentCrypto))
   }, [curentCrypto])
   
   return (

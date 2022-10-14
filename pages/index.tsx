@@ -4,6 +4,7 @@ import Nav from "../src/components/layout/nav";
 import MainSection from "../src/components/mainSection";
 import { useDispatch } from "react-redux";
 import { SetCryptoList } from "../src/State/cryptoSlice";
+import { setDetailSlice } from "../src/State/detailCryptoslice";
 import useDataFetch from "../src/components/shared/useFetch";
 import { useEffect } from "react";
 
@@ -23,6 +24,7 @@ const Home: NextPage = () => {
   dispatch(SetCryptoList(data?.coins));
   useEffect(() => {
     dispatch(SetCryptoList(data));
+    dispatch(setDetailSlice("bitcoin"))
   }, []);
   return (
     <div>
