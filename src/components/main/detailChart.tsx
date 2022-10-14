@@ -58,36 +58,42 @@ const DetailChart = ({ data }: Props) => {
     setDomLoading(true);
   }, []);
 
+  console.log("first " + fromUnixTime(1665783000000));
+  console.log("second" + fromUnixTime(45538));
+
   return (
     <Box>
       {domLoadin && (
-        <LineChart
-          width={730}
-          height={350}
-          data={foarmatedData}
-          margin={{ top: 5, right: 10, left: 40, bottom: 5 }}
-        >
-          <CartesianGrid vertical={false} strokeDasharray="3 3" opacity={0.3} />
-          <XAxis
-            dataKey="date"
-            axisLine={false}
-            tickLine={false}
-            tickCount={2}
-          />
-          <YAxis
-            hide={true}
-            dataKey="price"
-            axisLine={false}
-            tickLine={false}
-            tickFormatter={(num) => `$${num}`}
-            tickCount={5}
-            domain={["dataMin - 100", "dataMax + 500"]}
-          />
-          <Tooltip />
-          <Legend />
-          <Line type="monotone" dataKey="date" stroke="#8884d8" />
-          <Line type="monotone" dataKey="price" stroke="#82ca9d" />
-        </LineChart>
+        <ResponsiveContainer  height={350}>
+          <LineChart
+            data={foarmatedData}
+            margin={{ top: 5, right: 10, left: 40, bottom: 5 }}
+          >
+            <CartesianGrid
+              vertical={false}
+              strokeDasharray="3 3"
+              opacity={0.3}
+            />
+            <XAxis
+              dataKey="date"
+              axisLine={false}
+              tickLine={false}
+              tickCount={2}
+            />
+            <YAxis
+              hide={true}
+              dataKey="price"
+              axisLine={false}
+              tickLine={false}
+              tickFormatter={(num) => `$${num}`}
+              tickCount={5}
+              domain={["dataMin - 100", "dataMax + 500"]}
+            />
+            <Tooltip />
+            <Legend />
+            <Line type="step" dataKey="price" stroke="#ff5e57" />
+          </LineChart>
+        </ResponsiveContainer>
       )}
     </Box>
   );
