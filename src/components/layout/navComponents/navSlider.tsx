@@ -1,29 +1,26 @@
 import Slide from "../../shared/slider";
+import type { RootState } from "../../app/store";
 import useDataFetch from "../../shared/useFetch";
 import NavCryptoCard from "../../shared/navCryptoCard";
+import { useSelector } from "react-redux";
 import { SwiperSlide } from "swiper/react";
 import { Flex } from "@chakra-ui/react";
-
+import { useEffect } from "react";
 
 const NavSlider = () => {
-  type Props = {
-    icon: string;
-    name: string;
-  };
-  const { data } = useDataFetch<{ coins: [Props] }>(
-    "https://api.coinstats.app/public/v1/coins?skip=0&limit=14"
-  );
+  
+  const data = useSelector((state: RootState) => state.crypto);
 
   const dataArr = data?.coins;
   return (
     <Flex alignItems="center" width="75%">
-    <Slide slideNum={7} >
-      {dataArr?.map((crpt, index) => (
-          <SwiperSlide >
-              <NavCryptoCard img={crpt.icon} title={crpt.name} key={index} />
+      <Slide slideNum={7}>
+        {data.length > 0 && data?.slice(0, 14).map((crpt, index) => (
+          <SwiperSlide>
+            <NavCryptoCard img={crpt.icon} title={crpt.name} key={index} />
           </SwiperSlide>
-      ))}
-    </Slide>
+        ))}
+      </Slide>
     </Flex>
   );
 };

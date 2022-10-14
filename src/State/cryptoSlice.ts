@@ -17,7 +17,6 @@ const cryptoSlice = createSlice({
   },
   extraReducers: {
     [HYDRATE]: (state, action) => {
-      console.log("HYDRATE", action.payload);
       if (!action.payload.crypto.data) {
         return state;
       }

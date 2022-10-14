@@ -18,6 +18,10 @@ a {
   min-width: 0px !important;
 }
 
+.css-eaeacs{
+  margin: 0 !important;
+}
+
 .logo {
   color: wheat;
   background: -webkit-linear-gradient(#eee, #333);
@@ -33,6 +37,24 @@ a {
 
 .css-yjew60{
   background-color: #485460 !important;
+}
+
+.activeIcon{
+  color: white;
+  background: #12c2e9; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #12c2e9, #c471ed, #f64f59); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+ transition: background-color 0.1s ease-in-out;
+}
+
+.menuHover{
+  color: "white";
+  background-color: #485460;
+  transition: 300ms;
+}
+
+.activeBorder{
+  border-right: "3px solid #c471ed";
 }
 
 
