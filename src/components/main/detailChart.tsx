@@ -91,7 +91,7 @@ const DetailChart = ({ data }: Props) => {
             />
             <Tooltip />
             <Legend />
-            <Line type="step" dataKey="price" stroke="#ff5e57" />
+            <Line dot={<CustomizedDot />}  type="step" dataKey="price" stroke="#ff5e57" />
           </LineChart>
         </ResponsiveContainer>
       )}
@@ -99,4 +99,10 @@ const DetailChart = ({ data }: Props) => {
   );
 };
 
+
+const CustomizedDot = () => {
+  return (
+    <Box border="1px" borderColor=""></Box>
+  )
+}
 export default DetailChart;
