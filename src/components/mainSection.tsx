@@ -21,7 +21,8 @@ const MainSection = () => {
   const { data } = useDataFetch<{ coins: [Props] }>(
     `https://api.coingecko.com/api/v3/coins/${dt.name}/market_chart?vs_currency=usd&days=30&interval=daily`
   );
-
+  console.log(data)
+ 
   return (
     <Wrapper>
       <Flex w="100%">

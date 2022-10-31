@@ -16,9 +16,10 @@ type Props = {
 
 const Home: NextPage = () => {
   const { data } = useDataFetch<{ coins: [Props] }>(
-    "https://rest.coinapi.io/"
+    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false"
   );
   console.log(data)
+
 
   const dispatch = useDispatch();
   dispatch(SetCryptoList(data));
