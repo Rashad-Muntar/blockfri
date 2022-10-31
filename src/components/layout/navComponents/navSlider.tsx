@@ -17,7 +17,7 @@ const NavSlider = () => {
       <Slide slideNum={7}>
         {data.length > 0 && data?.slice(0, 14).map((crpt, index) => (
           <SwiperSlide>
-            <NavCryptoCard img={crpt.icon} title={crpt.name} key={index} />
+            <NavCryptoCard img={crpt.image} title={crpt.name} key={index} />
           </SwiperSlide>
         ))}
       </Slide>

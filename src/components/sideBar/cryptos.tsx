@@ -15,7 +15,7 @@ const Cryptos = () => {
               <Text>{crpt.name}</Text>
             </Flex>
 
-            <Text>{crpt.current_price.toFixed(2)}</Text>
+            {/* <Text>{crpt.current_price.toFixed(2)}</Text> */}
           </Flex>
         ))}
       <Flex my="10px" justifyContent="space-between">
